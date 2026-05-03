@@ -1,0 +1,8 @@
+body { font-family: sans-serif; max-width: 900px; margin: 20px auto; padding: 0 10px; }
+table { border-collapse: collapse; width: 100%; }
+th, td { border: 1px solid #ccc; padding: 6px 10px; text-align: center; }
+tr.expandable { cursor: pointer; }
+tr.expandable td:first-child::before { content: "\25B6  "; }
+tr.expandable.expanded td:first-child::before { content: "\25BC  "; }
+tr.sub { display: none; background: #ccc; }
+tr.sub.shown { display: table-row; }
