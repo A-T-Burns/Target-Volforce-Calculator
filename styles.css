@@ -1,15 +1,18 @@
-body { font-family: sans-serif; max-width: 900px; margin: 20px auto; padding: 0 10px; font-size: 16px; }
+:root { color-scheme: dark; }
+body { font-family: sans-serif; max-width: 900px; margin: 20px auto; padding: 0 10px; font-size: 16px; background: #1b1b1b; color: #e8e8e8; }
 input, button, label { font-size: 1.1em; }
 input[type="number"] { padding: 10px; width: 100%; max-width: 200px; box-sizing: border-box; }
 button { padding: 10px 18px; min-height: 44px; cursor: pointer; }
 label { display: block; margin-bottom: 6px; }
-table { border-collapse: collapse; width: 100%; }
-th, td { border: 1px solid #ccc; padding: 8px 6px; text-align: center; }
+table { border-collapse: separate; border-spacing: 0; width: 100%; border-top: 1px solid #555; border-left: 1px solid #555; }
+th, td { border: solid #555; border-width: 0 1px 1px 0; padding: 8px 6px; text-align: center; line-height: 1.2; }
 tr.expandable { cursor: pointer; }
 tr.expandable td:first-child::before { content: "\25B6  "; }
 tr.expandable.expanded td:first-child::before { content: "\25BC  "; }
-tr.sub { display: none; background: #ccc; }
-tr.sub.shown { display: table-row; }
+tr.sub { background: #2e2e2e; }
+tr.sub td { overflow: hidden; transition: all .3s; }
+/* rows can't animate from display:none, so collapse them to zero height instead */
+tr.sub:not(.shown) td { padding-top: 0; padding-bottom: 0; line-height: 0; border-bottom-width: 0; opacity: 0; visibility: hidden; }
 
 @media (max-width: 600px) {
   body { font-size: 15px; padding: 0 6px; }
